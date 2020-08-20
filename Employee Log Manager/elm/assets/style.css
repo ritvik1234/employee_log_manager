@@ -1,0 +1,126 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  background-color: #686868;
+  font-size: 20px;
+  font-weight: bold;
+  color:  #F5F5F5;
+
+}
+#signup{
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    color:  #0000cc;
+}
+/*body{
+    background-image: url("back.jpg");
+  height: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}*/
+form{
+    text-align: center;
+    position: absolute;
+    margin-left: 36%;
+    margin-top: 5%;
+}
+input{
+width: 200px;
+height: 30px;
+ border: 1px solid black;
+  border-radius: 4px;
+}
+#reg{
+width: 500px;
+height: 30px;
+ border: 1px solid black;
+  border-radius: 4px;
+}
+#register{
+    margin-top: -50px;
+    margin-left: -30px;
+    background-color: blue;
+
+}
+
+#index{
+    border-style: groove;
+    border-width: 4px;
+    border-color: #F5F5F5;
+    border-radius: 15px;
+    padding-top: 25px;
+    padding: 50px;
+}
+#login{
+    font-size: 15px;
+    color: black;
+    background-color: #008CBA;
+    padding: 10px 10px;
+    border-radius: 12px;
+    margin-left: 60px;
+}
+#user{
+    margin-left: 90%;
+    top: 0px;
+    width: 90px;
+    height: 60px;
+    position: absolute;
+    top: 10px;
+}
+.top{
+    background-color: #F5F5F5;
+    margin:0;
+    width:100%;
+    border-style: groove;
+    border-width: 2px;
+    height: 120px;
+
+}
+img{
+margin-left: 220px;
+margin-top:20px;
+}
+
+h1{
+    color: black;
+    margin-left: 540px;
+    margin-top: -80px;
+    font-size: 35px;
+    color: #404040;
+    font-weight: bold;
+    font-size: 50px;
+    border-color: grey;
+    border-width: 2px;
+    font-family: 'Playfair Display', serif;
+
+}
+/*.buttons{
+    margin: 0;
+    position: absolute;
+    left: 25%;
+
+}*/
+button{
+    margin-top: -40px;
+    font-size: 25px;
+    color: white;
+    background-color: #008CBA;
+    /*dispay: inline-block;*/
+    padding: 40px 40px;
+    border-radius: 12px;
+    height:100px;
+    width: 300px;
+}
+table, th, td {
+  border: 1px solid black;
+}
+th, td {
+  padding: 15px;
+}
+#start{
+
+}

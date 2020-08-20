@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+{{status}}
+    <div class="buttons">
+ {% if staff %}
+<center><form action='employees' method = 'POST'>
+    {% csrf_token %}
+    <button type = "submit" class="btn btn-info btn-lg">Employees_List</button></form>
+</form><br>
+{% endif %}
+{% if not staff %}
+<center><form action='update' method = 'POST'>
+    {% csrf_token %}
+    <button type = "submit" class="btn btn-info btn-lg">Update Your Profile</button></form><br>
+<form action= 'checkin' method = 'POST'>
+    {% csrf_token %}
+    <button type = "submit" class="btn btn-info btn-lg">Check-In</button></form>
+  <center> {{ status_1 }}</center>
+</form><br>
+{% endif %}
+{% if not staff %}
+    <form action='break' method = 'POST'>
+        {% csrf_token %}
+    <button type = "submit" class="btn btn-info btn-lg" >Break</button></form>
+   <center> {{ status_2 }} </center>
+</form><br>
+{% endif %}
+{% if not staff %}
+<form action='checkout' method = 'POST'>
+    {% csrf_token %}
+    <button type = "submit" class="btn btn-info btn-lg">Check-Out</button></form>
+     <center>{{ status_3 }}</center>
+</form><br>
+{% endif %}
+<form action='time' method = 'POST'>
+    {% csrf_token %}
+    <button type = "submit" class="btn btn-info btn-lg" >Time-Logs</button></form>
+</form><br>
+<form action='salary' method = 'POST'>
+    {% csrf_token %}
+    <button type = "submit" class="btn btn-info btn-lg">Salary-Logs</button></form>
+</form><br> </center>
+{% if staff %}
+<center><form action='manpower' method = 'POST'>
+    {% csrf_token %}
+    <button type = "submit" class="btn btn-info btn-lg">Manpower</button></form>
+</form>
+{% endif %}
+    </div> </center>
+
+{% endblock %}

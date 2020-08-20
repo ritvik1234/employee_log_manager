@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<center>
+    <div class =  "form" id = "register">
+ <form action ='delete' method = 'POST'>
+    {% csrf_token %}
+            Username<br>
+            <input type="text" name= "username" placeholder = ""
+            value="" id = "reg" required="required">
+            <br><br>
+            <input type="submit" value="Delete" class="btn btn-primary btn-lg">
+
+              </form>
+    </div>
+    {{status}} </center>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<center>
+    <h2>Register a new employee</h2>
+    <div class =  "form" id = "register">
+ <form action ='create_user' method = 'POST'>
+    {% csrf_token %}
+            Username<br>
+            <input type="text" name= "username" placeholder = ""
+            value="" id = "reg" required="required">
+            <br><br>
+            Password<br>
+            <input type="password" name ="password" id="psw" placeholder = ""
+            value="" id = "reg" required="required">
+            <br><br>
+            Re-Enter Password<br>
+            <input type="password" name = "re-password" placeholder = ""
+            value="" id = "reg" required="required">
+            <br><br>
+            <input type="submit" value="Next" class="btn btn-primary btn-lg">
+        </form>
+    </div></center>
+    <center>
+        {{status}}
+</center>
+
+{% endblock %}
+

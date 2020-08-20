@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+   <center> <h2>Employee Time Logs </h2>
+    <table id = "table_2" class = "table table-striped">
+        <tr>
+            <th scope="col">Log No</th>
+            {% if staff %}<th scope="col">Employee Code</th>{% endif %}
+            <th scope="col">Date</th>
+            <th scope="col">Month</th>
+            <th scope="col">Year</th>
+            <th scope="col">Check In </th>
+            <th scope="col">Break</th>
+            <th scope="col">Check Out</th>
+            <th scope="col">Duration</th>
+        </tr>
+        {% for time in time_log %}
+        <tr>
+            <td scope="row">{{ time.id }}</td>
+            {% if staff %}<td>{{ time.employee_code }}</td>{% endif %}
+            <td>{{ time.date }}</td>
+            <td>{{ time.month }}</td>
+            <td>{{ time.year }}</td>
+            <td>{{ time.check_in }}</td>
+            <td>{{ time.brea_k }} hrs</td>
+            <td>{{ time.check_out }}</td>
+            <td>{{ time.duration }} hrs</td>
+        </tr>
+        {% endfor %}
+    </table>    </div></center>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="{% static '/lisenme.js' %}"></script>
+<script>
+jQuery('#table_2').ddTableFilter();
+</script>
+{% endblock %}

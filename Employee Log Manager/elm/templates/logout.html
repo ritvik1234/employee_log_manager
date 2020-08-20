@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<center><h3> You have been logged out </h3>
+<a href = "{% url 'home' %}">Login Again </a></center>
+<script type="text/javascript">
+      history.pushState(null,null,location.href);
+      window.onpopstate = function() {
+        history.go(1);
+      };
+    </script>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<center>
+    <div class =  "form" id = "register">
+ <form action ='admin_create' method = 'POST'>
+    {% csrf_token %}
+            Name<br>
+            <input type="text" name= "name" placeholder = ""
+            value="{{name}}" id = "reg" size = "25" required="required">
+            <br><br>
+            Email<br>
+            <input type="text" name ="email" placeholder = ""
+            value="{{email}}" id = "reg" size = "25" required="required">
+            <br><br>
+            Hourly Rate<br>
+            <input type="number" name = "hour" placeholder = ""
+            value="{{hourly_rate}}" id = "reg" required="required">
+            <br><br>
+            <input type="submit" value="Register/Update" class="btn btn-primary btn-lg">
+        </form>
+    </div>
+{{ status }}
+</center>
+{% endblock %}

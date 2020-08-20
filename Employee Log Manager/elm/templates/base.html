@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html class = "p-3 mb-2 bg-white text-dark">
+<head>
+<title>Employee Log Manager</title>
+    <link rel="stylesheet" href="{% static '/style.css' %}?{% now "U" %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+     <div class = "top">
+
+<div class="p-3 mb-2 bg-info text-white">
+
+        <img src = "{% static "/log.png" %}" margin-left= "90%">
+        {% if logout %}
+           <form id = "index" action = "logout" method = 'POST'>
+{% csrf_token %}
+            <input id = "logout" type="submit" value="Logout" class="btn btn-info btn-lg float-right"></form></center>
+        <form id = "index" action = "{% url 'home' %}" method = 'POST'>
+{% csrf_token %}
+            <input id = "logout" type="submit" value="Home" class="btn btn-info btn-lg float-right"></form></center>
+
+
+            {% endif %}
+    <center><h1>  Employee Log Manager</h1></center>
+
+  </div>
+   <br><br>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</div>
+</div>
+</html>
+

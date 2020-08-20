@@ -1,0 +1,86 @@
+Model Forms :
+Multi Value fields
+
+django-admin startproject sampleapp
+
+
+
+
+##Django Rest Framework
+Serializers: package and unpackage data
+Package when going to the server , and unpackage data when coming from the server
+
+
+what We need to do with the rest framework is that
+we need a way to get this data and output it in a way that can be read by other technologies like other mobile applications
+Response ka jawab aayega in a format that can be read by other technologies.
+
+Need a JSON version of all this data
+JSON Format
+
+Thats what a serializer does: It takes the data that exists on the server and it serializes it in an output
+that can be read by other technologies,  (JSON Type)
+Package bhejte hue
+
+Two types of Serializers :
+Model and Regular(general)
+General wala long way but more customizable
+Model wale less customizable but more simple to set up
+
+We will separate the rest api code
+Regular code for the server and then there is a Rest Api Code
+Model Serializer with the Rest Framework and now we are gonna make a view to display that serialized data
+Serializer bna liya, ab view bnayenge to display that serialized data from the server
+
+Ab bnayenge Function based view
+ Abhi tak bas view tha
+ now update, and other features from the REST API Krke dekhenge, create, delete
+ PUT DELETE POST Requests
+
+ Update krna serializer just like the form functionality
+
+
+View aayega: DJango Rest Framework constructs this view for us
+Build Rest APIs on Top of Django Framework
+REST: Representative State Transfer
+
+Till now we were using HTTP for getting any documents from the server, maybe some kind of pages ,
+same http protocols.
+
+
+(Sign with Google, Google saari Authentication kr leta yeh woh waghera waghera)
+ API:
+ using some of the code written by google in this case and try to incorportae that in my website.
+ Although this entire code is written by Google, but i dont have to worry about what they written, how they have written,
+ I am just fixing up some of their variables and using the features of the google that they have providede for me
+ Yeh sab API ki madad se
+ Booking up with Airways
+ But aise to fir sbb krne lg jaaye, over use and all
+ So there is something known as API key
+API Key is a method by which i sign up on the Google and take the permission of Google, hey i want to use ur login feature.
+Then Woh provide krega API key ki yeh le kr le use, pr i will track u, kuch chutiyapa krega toh pelunga band kr dunga
+
+Connectivity: Web Service
+application programming interface
+using API of Google and Facebook
+i can use thei APIS .some free
+
+Contract provided by one piece of software
+
+
+REST: Representational State Transfer
+REST is Resource Based.
+This means in a RESTful API
+
+
+pip install pillow
+
+
+  def create(self, validated_data, **kwargs):
+        if duration < 192:
+            salary = hourly_rate*192
+        elif duration > 192 and duration < 250:
+            salary = hourly_rate*192 + 1.5*hourly_rate*(duration - 192)
+        else:
+            salary = hourly_rate*192 + 1.5*hourly_rate*(58) + 2*hourly_rate*(duration-250)
+        return Data.objects.create(salary , **validated_data)

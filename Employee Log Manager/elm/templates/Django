@@ -1,0 +1,188 @@
+Framework: Combination of certain packages and components.
+Django: Web Appliction Framework
+MVC (Separate the concerns).
+Model:For Data
+View: The HTML format u see
+Controller: Control the operations
+
+Django:
+MVT
+Model:
+View:
+Template:
+In MVT we are replacing Controller with view, and View with Template
+
+Reason of choosing Django when other frameworks present in Python
+1. Fast
+2. No of components
+If you want to make a database, you need login, you need database connectivity and all these things come
+bundled in Django.
+3. Security
+4. Scalability (Gives u option)
+
+IN cmd
+django-admin startproject telusko (To start a project)
+A new file and folder created
+Important file is manage
+wsgi : kinda testing server
+urls: url ke liye
+Django ke saath ek light weight server bhi aata hai
+python manage.py runserver
+IP Address: Local Host, port number
+Static webpages: Sabke liye same
+Dynamic: Har ke liye alag, fb feed jaisa
+DEBUG = True (Se piche kya chal rha voh pta lag jaata, pr before deploying to server false kr do)
+settings.py very important file
+App bnayenge separate Modules basically
+python manage.py startapp calc(name of your app)
+RItvik is your project and calc is your app
+different files in the calc folder (usme settigs nhi hogi, every app will have its own stuff)
+apps.py, model.py (backend connectivity)
+tests.py (test cases ke liye)
+views.py (handle requests)
+ORM
+
+Lets see how django works:
+The moment you request to url to server, it will look for mapping
+Agar homepage dhund rhe to will look for url with / (Basically homepage is referred with / or empty)
+
+We have to do something with the url file , project wale ki jgha app ki khud ki mapping bnayenge
+urls.py(Khud banao) here we have to provide the mapping
+Import path and views, but how will you provide the mapping ?
+Thats where uu have to use a list of mappings, u might have multiple urls to map with
+Home page ke liye krte hai
+We have to handle it with some fnction
+name mei we can also have index to html
+If you are getting data in response format, you have to send it in response format.
+def home(request):
+  return HttpResponse("Hello World");
+  jab url ki request aayegi home function deal krega
+
+  pr abhi file nhi chlegi, kyuki control toh project ke pass hai aur humne usme to kuch kiya hi nhi
+
+Now when connected with project url
+Logic: If you are searching for the home page, you have to look for calc.urls
+
+Yeh ussi project url mei isliye nhi kiya kyuki, we can have multiple apps,
+and every app will have its own url, and it makes sense to do that as it will make it isolated
+
+
+##Django Template:
+Settings.py ke DIRS mei path btao template ka
+the {{}} curly brackets mean the code we are writing here is dynamic
+This is the Jinja pattern or jinja template
+
+As a client when u send a request to a server
+
+WHen server send u value back it will be in sorm form
+When u press,the request will go to the server , procesing happens and it returns result
+
+##HTTP PRotocol:
+Request Methods:
+when ever you send a request or get a response, you r basically using http protocol
+
+POST: Adding new data to server (Form bhara jaises)
+GET: Fetching the data
+GET se data address bar pe jaata hai,
+
+For security , we should use POST
+By defaut method is get
+We are not sending data in address bar, done with the hep of cookies
+
+WE have basically three things:
+DATA
+LAYOUT
+LOGIC (business logic)
+
+sEPARATION of concerns
+
+Data coming from model object
+Template mei html css plus dynamic jinja
+but who will link this
+Ín views we write the business logic
+
+Kahi se download kra hai toh static files kaha se milengi
+Assets folder bnao , Django ko inform kro,
+HTML page mei load static andd jaha href hai waha
+{% static wiqjd^%} Yeh wala change har jagha jaha styles js wagerha hai
+
+
+
+
+Static file copied in a folder
+EK chnage in the setting foldr
+BASE_DIR and other
+Jab zyada Data bhejna ho to make a class
+
+Model mei data comes from database
+dests = [dest1,dest2,dest3]
+
+and jab pass kr rhe honge
+return render(request,"index.html", {'dests':'dests'} )
+
+
+{%for dest in dests%}
+
+
+
+{%endfor%}
+{% if dest.offer == %}
+{% endif %}
+You cant use Jinja in Jinja
+{load static ky atha}
+
+In post gres what we want to do is , we want to migrate
+Migration is creating tables in database,with the help of your model
+ORM: Object Relational Mapper
+CLASS KE ACCORding, One object will be = 1 column in database
+1st row = 1st object data (customer ka maan lo)
+Directly create tables with the help of classes
+Even after the command (python manage.py makemigrations), we have not migrated the file, instead we have just made a migration file
+
+python manage.py sqlmigrate calc(app_name) 0001
+python manage.py migrate
+python manage.py help
+
+
+## We need to work with the media file
+Settings.py meo change krna
+Then also, we need to work with the urls.py mei jaake url add krna S
+{{dest.img.url}} (Because we have to go for the global url)
+Jab nayi app bnayenge toh urls.py nhi hoga bnana pdega hamesha
+
+
+Sabse pehle
+Urls bnao  uske baad har baad yeh urls.py app waale ko main wale se link kro
+then views mei jaake function bnao .
+accounts/register
+
+
+#Static files handled differently in production
+
+
+#Application error
+Not told heroku how we want our application to run
+
+Procfile
+web:
+(Important here as it explains the process type)
+gunicorn command needed to run a process , a way of our python code to talk to our web server and it is going to do that through wsgi file (web service gateway interface)
+It should be woh jism settings.p file
+wsgi file mei ek variable hai application woh use krega gunicorn
+When working in production, switch off debug mode
+Django has some security features , jiske karake specificlly we have to specify the host
+
+
+New Secret key for production and aur bhi chutiyapa
+
+Using python interpreter for secret key
+7909dcc4aa6a658eaba0f4208b42c7673411214c56af52f7
+
+hoby dev is the plan the free tier
+We install it as pip install django-heroku and use it as import django_heroku
+isse kaafi kuch set ho jayega
+migrate wali command run krni application pe
+heroku run manage.py migrate
+Remember production mei bilkul naya database bnaya hai old one doesnt exist
+heroku machines called dinos
+heroku run bash

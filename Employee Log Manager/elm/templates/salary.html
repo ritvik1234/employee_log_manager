@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <center><h2>Employee Salary Logs </h2>
+    <table id = "salary" class = "table table-striped">
+        <tr>
+            <th scope="col">Log No</th>
+            {% if staff %}<th>Employee Code</th>{% endif %}
+            <th scope="col">Month</th>
+            <th scope="col">Year</th>
+            <th scope="col">Duration </th>
+            <th scope="col">Salary </th>
+        </tr>
+        {% for sal in salary_log %}
+        <tr>
+            <td scope="row">{{ sal.id }}</td>
+            {% if staff %}<td>{{ sal.employee_code }}</td>{% endif %}
+            <td>{{ sal.month }}</td>
+            <td>{{ sal.year }}</td>
+            <td>{{ sal.duration }} hrs</td>
+            <td>Rs. {{ sal.salary }}</td>
+        </tr>
+        {% endfor %}
+    </table>    </div></center>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="{% static '/lisenme.js' %}"></script>
+<script>
+jQuery('#salary').ddTableFilter();
+</script>
+{% endblock %}
+

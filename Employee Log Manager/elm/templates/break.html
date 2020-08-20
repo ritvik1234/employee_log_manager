@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+   <form id = "index" action = 'afterbreak' method = 'POST'>
+{% csrf_token %}
+            <center>Break-Time<br>
+            <input type="number" step="0.01" name = brea_k placeholder = ""
+            value="" required="required">
+             <br><br>
+            <input id = "login" type="submit" value="Break" class="btn btn-primary btn-lg"></center>
+{% endblock %}

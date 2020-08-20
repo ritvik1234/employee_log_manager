@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class =  "form">
+ <center><form id = "index" action='log' method = 'POST'>
+    {% csrf_token %}
+            Username:
+            <input type="text" name = "username" placeholder = "Username"
+            value="" required="required">
+            <br><br>
+            Password:
+            <input type="password" name = "password" placeholder = "Password"
+            value="" required="required">
+            <br>
+            <br>
+            <center>{{status}}</center>
+            <button type="submit" class="btn btn-primary btn-lg">Login</button>
+            <br><br>
+           <a id = "signup" href = "{% url 'password_reset'%}"> Forgot Your Password?</a>
+        </form></center>
+    </div>
+
+{% endblock %}

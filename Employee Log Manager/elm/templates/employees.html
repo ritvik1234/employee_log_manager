@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+ <a href = "{% url 'register' %}"><img src = "{% static "/user1.png" %}" height = 60px width =60px></a>
+ <br>Register New Employee
+
+   <center> <h2>Employee List</h2>
+    <table id= "table_format" class = "table table-striped">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Employee Code</th>
+            <th scope="col">Username</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Hourly Rate</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        <style>
+            input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  background-color: transparent;
+}
+        </style>
+        {% for emp in employee_log %}
+        <tr>
+            <td scope="row">{{ emp.id }}</td>
+            <td>{{ emp.employee_code }}</td>
+            <td><form method = "POST">
+                {% csrf_token %}
+                <input = "text" value = "{{ emp.username }}" name = "username" border = "none"; readonly></td>
+            <td>{{ emp.name}}</td>
+            <td>{{ emp.email}}</td>
+            <td>{{ emp.hourly_rate}}</td>
+            <td><input type="image" name="submit" formaction = "update_details" src="{% static "/update.png" %}" height = 20px width =20px"></td> <!-- <a href = "{% url 'admin_update' %}"><img src = "" ></a> --></td>
+            <td>
+            <input type="image" name="submit" src="{% static "/delete.png" %}" onclick = "clicked()" formaction = "delete" height = 20px width =20px"></td></form>
+        </tr>
+        {% endfor %}
+        <script type="text/javascript">
+    function clicked() {
+       if (confirm('Are you sure you want to delete the user?')) {
+           yourformelement.submit();
+       } else {
+           return false;
+       }
+    }
+
+</script>
+    </table></div></center>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="{% static '/lisenme.js' %}"></script>
+<script>
+jQuery('#table_format').ddTableFilter();
+</script>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+   <form id = "index" action = 'aftercheckout' method = 'POST'>
+    {% csrf_token %}
+            <center>Check-Out<br>
+            <input type="number" step="0.01" name = checkout placeholder = ""
+            value="" required="required">
+             <br><br>
+            <input id = "login" type="submit" value="Check-Out" class="btn btn-primary btn-lg"></center>
+{% endblock %}
